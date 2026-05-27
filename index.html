@@ -4,45 +4,58 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Verbos irregulares</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main class="app">
-    <header>
+    <header class="hero">
+      <p class="eyebrow">Práctica de inglés</p>
       <h1>Verbos irregulares</h1>
       <p class="subtitle">Te damos una forma; completá las otras dos.</p>
     </header>
 
-    <section class="scoreboard" aria-live="polite">
-      <span>Racha: <strong id="streak">0</strong></span>
-      <span>Aciertos: <strong id="correct">0</strong> / <strong id="total">0</strong></span>
+    <section class="scoreboard" aria-label="Estadísticas">
+      <div class="stat">
+        <span class="stat__label">Racha</span>
+        <strong class="stat__value" id="streak">0</strong>
+      </div>
+      <div class="stat">
+        <span class="stat__label">Aciertos</span>
+        <strong class="stat__value"><span id="correct">0</span><span class="stat__sep">/</span><span id="total">0</span></strong>
+      </div>
     </section>
 
-    <form id="game-form" class="card" novalidate>
+    <form id="game-form" class="card" novalidate aria-label="Ronda actual">
       <div class="field" data-form="present">
         <label for="present">Presente</label>
-        <input id="present" name="present" type="text" autocomplete="off" spellcheck="false" />
+        <input id="present" name="present" type="text" autocomplete="off" spellcheck="false" inputmode="text" />
       </div>
       <div class="field" data-form="past">
         <label for="past">Pasado</label>
-        <input id="past" name="past" type="text" autocomplete="off" spellcheck="false" />
+        <input id="past" name="past" type="text" autocomplete="off" spellcheck="false" inputmode="text" />
       </div>
       <div class="field" data-form="participle">
         <label for="participle">Participio</label>
-        <input id="participle" name="participle" type="text" autocomplete="off" spellcheck="false" />
+        <input id="participle" name="participle" type="text" autocomplete="off" spellcheck="false" inputmode="text" />
       </div>
 
-      <p id="feedback" class="feedback" role="status" hidden></p>
+      <p id="feedback" class="feedback" role="status" aria-live="polite" hidden></p>
 
       <div class="actions">
-        <button type="button" id="btn-try" class="btn primary">Jugar</button>
+        <button type="button" id="btn-try" class="btn btn--primary">Jugar</button>
         <button type="submit" id="btn-check" class="btn" hidden>Comprobar</button>
-        <button type="button" id="btn-skip" class="btn ghost" hidden>Saltar</button>
-        <button type="button" id="btn-reveal" class="btn ghost" hidden>Ver respuesta</button>
+        <button type="button" id="btn-skip" class="btn btn--ghost" hidden>Saltar</button>
+        <button type="button" id="btn-reveal" class="btn btn--ghost" hidden>Ver respuesta</button>
       </div>
     </form>
 
-    <p id="load-error" class="error" hidden>
+    <p id="load-error" class="banner banner--error" hidden role="alert">
       No se pudo cargar <code>verbs.json</code>. Abrí la carpeta con un servidor local
       (<code>python3 -m http.server</code> o Live Server).
     </p>

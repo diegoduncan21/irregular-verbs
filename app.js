@@ -72,7 +72,7 @@ function hideFeedback() {
 
 function showFeedback(text, kind) {
   els.feedback.hidden = false;
-  els.feedback.className = `feedback ${kind}`;
+  els.feedback.className = `feedback is-visible ${kind}`;
   els.feedback.textContent = text;
 }
 
